@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'v-heading';
+@import 'v-tooltip';
+@import 'vue-select';
+
+@mixin bg-orange-gradient {
+  background-image: linear-gradient(180deg, #eea15a 0%, #b54c1f 100%);
+}
+
+@mixin bg-gray-gradient {
+  background-image: linear-gradient(180deg, #a2a2a2 0%, #656565 100%);
+}
+
+@mixin bg-gray-dark-gradient {
+  background-image: linear-gradient(180deg, #535353 0%, #3e3e3e 100%);
+}
+
+html {
+  // min-height: 100%;
+}
+
+body {
+  background-color: white;
+  // background-color: #fae6ce;
+  // background-image: linear-gradient(
+  //   158.66deg,
+  //   #fbe7d4 14.05%,
+  //   rgba(239, 241, 255, 0) 66.31%
+  // );
+  // background-color: #121a4e;
+  // background-image: linear-gradient(154.12deg, #27327d 16.34%, #20285c 78.65%);
+}
+
+// .geo-background {
+//   opacity: 100%;
+//   &.top {
+//     background: url('../../static/geo-bg.svg') right top no-repeat;
+//   }
+//   &.bottom {
+//     background: url('../../static/geo-bg.svg') right bottom no-repeat;
+//   }
+// }
+
+.input {
+  @apply font-mono bg-gray-100 p-1;
+}
+
+.v-card {
+  box-shadow: 0px -12px 40px rgba(17, 20, 27, 0.1);
+  border-radius: 20px 20px 0px 0px;
+
+  &.rounded-bottom {
+    border-radius: 20px;
+  }
+
+  &.white {
+    background: #ffffff;
+  }
+
+  &.blue {
+    background: linear-gradient(158.66deg,
+        #fbe7d4 14.05%,
+        rgba(239, 241, 255, 0) 67.57%);
+    // background: linear-gradient(
+    //   151.92deg,
+    //   #3a48a3 17.39%,
+    //   rgba(31, 42, 118, 0) 67.62%
+    // );
+  }
+}
+
+.bg-orange-gradient {
+  @include bg-orange-gradient;
+}
+
+.button-next {
+  @apply w-full font-bold rounded-md py-4;
+  min-height: 54px;
+  box-shadow: 0px 4px 20px rgba(84, 89, 107, 0.15);
+
+  &.orange {
+    @include bg-orange-gradient;
+    @apply text-white;
+  }
+
+  &.blue {
+    @apply text-white bg-orange-4;
+    // background: rgba(35, 46, 116, 0.6);
+  }
+
+  &.white {
+    @apply text-gray-700 bg-white;
+
+    &:hover,
+    &:focus {
+      @apply bg-gray-50;
+    }
+
+    // background: rgba(35, 46, 116, 0.6);
+  }
+
+  &.blue-dark {
+    @apply text-white bg-orange-4;
+    // background: linear-gradient(154.12deg, #3a48a3 16.34%, #1f2a76 78.65%),
+    //   linear-gradient(154.12deg, #27327d 16.34%, #20285c 78.65%), #20285c;
+  }
+
+  &.red {
+    @apply text-white bg-red-600;
+  }
+
+  &:disabled {
+    @include bg-gray-gradient;
+  }
+
+  &.blue {
+    &:disabled {
+      @include bg-gray-dark-gradient;
+    }
+  }
+
+  &.sm {
+    @apply py-1 px-2 text-sm font-normal;
+    min-height: auto;
+    box-shadow: 0px 2px 6px rgba(84, 89, 107, 0.1);
+  }
+}
+
+.vm--container .vm--modal {
+  @apply rounded-lg overflow-visible;
+}
+
+.modal-input {
+  @apply bg-gray-100 text-base appearance-none rounded px-3 py-2;
+}
+
+.modal-label {
+  @apply text-xs text-gray-500;
+}
+
+.modal-input-underlined {
+  .modal-input {
+    @apply text-2xl font-bold bg-transparent border-b-2 border-gray-2 px-0 text-gray-1 rounded-none;
+    text-align: inherit;
+
+    &:focus {
+      @apply outline-none border-gray-1;
+    }
+  }
+
+  .modal-label {
+    @apply text-sm font-medium text-gray-1;
+  }
+}
+
+.onboarding-input-container {
+  @apply mb-6;
+}
+
+.onboarding-label {
+  @apply text-base mb-2 inline-block text-gray-dark;
+}
+
+.onboarding-input {
+  @apply block w-full appearance-none text-gray-dark font-bold text-base p-3 border-2 bg-[#EBEAFF] border-[#E5E4F5];
+  border-radius: 6px;
+}
+
+.onboarding-input-description {
+  @apply text-xs text-gray-600 mt-1;
+
+  &.red {
+    @apply text-red-600;
+  }
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid #ee885a;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.orange-currency-table {
+  @include bg-orange-gradient;
+  @apply  text-white rounded-md px-3 py-2 mt-2 mb-6;
+
+  table {
+    @apply w-full;
+
+    tr:not(:last-child) {
+      td {
+        border-bottom: 1px solid rgba(91, 94, 141, 0.12);
+      }
+    }
+
+    th {
+      @apply text-xs font-semibold text-right;
+      vertical-align: bottom;
+    }
+
+    td {
+      @apply py-3.5;
+
+      &:not(:first-child) {
+        @apply text-xl font-bold text-right;
+      }
+    }
+  }
+}
+
+.glide__slides .glide__slide {
+  @apply h-auto flex;
+}
+
+.vm--modal {
+  height: auto !important;
+}

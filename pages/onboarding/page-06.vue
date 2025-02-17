@@ -1,0 +1,171 @@
+<template>
+  <form @submit.prevent="goNext()">
+    <VOnboardingContainer
+      image-src="/onboarding/page-05.png"
+      character-src="/onboarding/characters/Characters-5.png"
+    >
+      <VOnboardingHeading
+        class="mb-4"
+        image-src="/icons/onboarding/growth.svg"
+        title="Make the most of your pay!"
+        subtitle="STEP ONE"
+      ></VOnboardingHeading>
+      <div class="onboarding-input-container">
+        <label class="onboarding-label" for="frequency"
+          >How often do you get paid?</label
+        >
+        <select
+          id="frequency"
+          class="onboarding-input"
+          :value="onboarding.income_frequency"
+          @input="
+            $store.dispatch('setOnboardingValue', {
+              key: 'income_frequency',
+              value: $event.target.value,
+            })
+          "
+        >
+          <option disabled="true" value="">Frequency</option>
+          <option
+            v-for="option in frequencyOptions"
+            :key="option.value"
+            :value="option.value"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+      </div>
+      <div class="onboarding-input-container">
+        <label class="onboarding-label" for="net"
+          >How much is your regular pay?</label
+        >
+        <VMoney
+          id="net"
+          class="onboarding-input"
+          :value="onboarding.net_income"
+          @input="
+            $store.dispatch('setOnboardingValue', {
+              key: 'net_income',
+              value: $event,
+            })
+          "
+        />
+      </div>
+      <!-- <div class="onboarding-input-container">
+      <label class="onboarding-label" for="gross"
+        >Gross Household Income (optional)</label
+      >
+      <VMoney
+        id="gross"
+        class="onboarding-input"
+        :value="grossIncome"
+        @input="
+          $store.dispatch('setValue', {
+            key: 'grossIncome',
+            value: $event,
+          })
+        "
+      />
+    </div> -->
+      <div class="onboarding-input-container">
+        <label class="onboarding-label" for="dob"
+          >What is the next date of your pay?</label
+        >
+        <input
+          id="dob"
+          class="onboarding-input"
+          type="date"
+          required
+          :value="onboarding.next_payday_date"
+          max="9999-12-31"
+          :min="new Date().toISOString().split('T')[0]"
+          @input="
+            $store.dispatch('setOnboardingValue', {
+              key: 'next_payday_date',
+              value: $event.target.value,
+            })
+          "
+        />
+        <p v-if="paydayInPast" class="red onboarding-input-description">
+          Date must be in the future
+        </p>
+      </div>
+      <div class="onboarding-input-container">
+        <label class="onboarding-label" for="gross"
+          >How much do you have in savings right now?</label
+        >
+        <VMoney
+          id="gross"
+          class="onboarding-input"
+          :value="onboarding.cash_savings"
+          @input="
+            $store.dispatch('setOnboardingValue', {
+              key: 'cash_savings',
+              value: $event,
+            })
+          "
+        />
+      </div>
+      <template slot="button">
+        <ButtonBack @click="$router.push('/onboarding/page-05')" />
+        <ButtonNext
+          color="blue"
+          type="submit"
+          :disabled="
+            !onboarding.next_payday_date ||
+            !onboarding.net_income ||
+            paydayInPast
+          "
+          >NEXT</ButtonNext
+        >
+      </template>
+    </VOnboardingContainer>
+  </form>
+</template>
+
+<script>
+import moment from 'moment'
+import { mapState } from 'vuex'
+export default {
+  auth: false,
+  layout: 'onboarding',
+
+  data() {
+    return {
+      frequencyOptions: [
+        {
+          label: 'Weekly',
+          value: 'weekly',
+        },
+        {
+          label: 'Fortnightly',
+          value: 'fortnightly',
+        },
+        {
+          label: 'Monthly',
+          value: 'monthly',
+        },
+        {
+          label: 'Yearly',
+          value: 'yearly',
+        },
+      ],
+    }
+  },
+  computed: {
+    ...mapState(['onboarding']),
+    paydayInPast() {
+      return moment(this.onboarding.next_payday_date).isBefore(
+        moment().subtract(1, 'days')
+      )
+    },
+  },
+  methods: {
+    goNext() {
+      this.$router.push('/onboarding/page-07')
+    },
+  },
+}
+</script>
+
+<style></style>

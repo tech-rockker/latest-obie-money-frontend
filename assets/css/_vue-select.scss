@@ -1,0 +1,28 @@
+.v-select {
+  .vs__search {
+    &::placeholder {
+      @apply text-gray-400;
+    }
+  }
+  .vs__dropdown-toggle {
+    height: 40px;
+    @apply bg-gray-100 border-none rounded;
+    &.vs--open{
+      @apply rounded-t-none rounded-b;
+    
+    }
+  }
+  .vs__selected {
+    @apply text-base;
+  }
+  .vs__dropdown-menu {
+    bottom: 100%;
+    top: auto;
+  }
+  .vs__dropdown-option {
+    @apply py-1 pl-1;
+    &.vs__dropdown-option--highlight {
+      @apply bg-orange-4;
+    }
+  }
+}
