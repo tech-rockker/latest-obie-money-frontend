@@ -16,7 +16,7 @@
       </div>
     </div>
     <div v-else class="flex space-x-3">
-      <nuxt-link to="/login" type="button" class="button-next blue-dark sm"
+      <!-- <nuxt-link to="/auth/login" type="button" class="button-next blue-dark sm"
         >Log In</nuxt-link
       >
       <nuxt-link
@@ -24,13 +24,30 @@
         type="button"
         class="button-next white sm"
         >Register</nuxt-link
-      >
+      > -->
+      <nuxt-link to="/auth/login" type="button" :class="loginButtonClass">Log In</nuxt-link>
+      <nuxt-link to="/auth/register/page-01" type="button" :class="registerButtonClass">Register</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+
+    computed: {
+        isLoginActive() {
+            return this.$route.path === "/auth/login";
+        },
+        isRegisterActive() {
+            return ["/auth/register/page-01", "/auth/register/page-02"].includes(this.$route.path);
+        },
+        loginButtonClass() {
+            return this.isLoginActive ? "button-next blue-dark sm" : "button-next white sm";
+        },
+        registerButtonClass() {
+            return this.isRegisterActive ? "button-next blue-dark sm" : "button-next white sm";
+        }
+    },
   methods: {
     async logOut() {
       await this.$auth.logout()

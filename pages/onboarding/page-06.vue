@@ -1,170 +1,73 @@
 <template>
-  <form @submit.prevent="goNext()">
-    <VOnboardingContainer
-      image-src="/onboarding/page-05.png"
-      character-src="/onboarding/characters/Characters-5.png"
-    >
-      <VOnboardingHeading
-        class="mb-4"
-        image-src="/icons/onboarding/growth.svg"
-        title="Make the most of your pay!"
-        subtitle="STEP ONE"
-      ></VOnboardingHeading>
-      <div class="onboarding-input-container">
-        <label class="onboarding-label" for="frequency"
-          >How often do you get paid?</label
-        >
-        <select
-          id="frequency"
-          class="onboarding-input"
-          :value="onboarding.income_frequency"
-          @input="
-            $store.dispatch('setOnboardingValue', {
-              key: 'income_frequency',
-              value: $event.target.value,
-            })
-          "
-        >
-          <option disabled="true" value="">Frequency</option>
-          <option
-            v-for="option in frequencyOptions"
-            :key="option.value"
-            :value="option.value"
-          >
-            {{ option.label }}
-          </option>
-        </select>
-      </div>
-      <div class="onboarding-input-container">
-        <label class="onboarding-label" for="net"
-          >How much is your regular pay?</label
-        >
-        <VMoney
-          id="net"
-          class="onboarding-input"
-          :value="onboarding.net_income"
-          @input="
-            $store.dispatch('setOnboardingValue', {
-              key: 'net_income',
-              value: $event,
-            })
-          "
-        />
-      </div>
-      <!-- <div class="onboarding-input-container">
-      <label class="onboarding-label" for="gross"
-        >Gross Household Income (optional)</label
-      >
-      <VMoney
-        id="gross"
-        class="onboarding-input"
-        :value="grossIncome"
-        @input="
-          $store.dispatch('setValue', {
-            key: 'grossIncome',
-            value: $event,
-          })
-        "
-      />
-    </div> -->
-      <div class="onboarding-input-container">
-        <label class="onboarding-label" for="dob"
-          >What is the next date of your pay?</label
-        >
-        <input
-          id="dob"
-          class="onboarding-input"
-          type="date"
-          required
-          :value="onboarding.next_payday_date"
-          max="9999-12-31"
-          :min="new Date().toISOString().split('T')[0]"
-          @input="
-            $store.dispatch('setOnboardingValue', {
-              key: 'next_payday_date',
-              value: $event.target.value,
-            })
-          "
-        />
-        <p v-if="paydayInPast" class="red onboarding-input-description">
-          Date must be in the future
-        </p>
-      </div>
-      <div class="onboarding-input-container">
-        <label class="onboarding-label" for="gross"
-          >How much do you have in savings right now?</label
-        >
-        <VMoney
-          id="gross"
-          class="onboarding-input"
-          :value="onboarding.cash_savings"
-          @input="
-            $store.dispatch('setOnboardingValue', {
-              key: 'cash_savings',
-              value: $event,
-            })
-          "
-        />
-      </div>
-      <template slot="button">
-        <ButtonBack @click="$router.push('/onboarding/page-05')" />
-        <ButtonNext
-          color="blue"
-          type="submit"
-          :disabled="
-            !onboarding.next_payday_date ||
-            !onboarding.net_income ||
-            paydayInPast
-          "
-          >NEXT</ButtonNext
-        >
-      </template>
+    <VOnboardingContainer>
+        <div class=" flex flex-col items-center">
+
+            <!-- Main Content -->
+            <div class="text-center">
+                <!-- Heading -->
+                <div class="mt-4">
+                    <h1 class="text-[#100937] text-4xl font-extrabold tracking-tight leading-6 my-6 ">
+                        Thank you!
+                    </h1>
+                    <h2 class="text-[#100937] text-xl font-normal leading-6 mb-6">
+                        Now, let's set up your account<br>
+                        so you can start turning those<br>
+                        goals into action!
+                    </h2>
+                </div>
+
+
+                <!-- Stages Card -->
+                <div class="bg-white rounded-xl shadow-lg p-4 mb-4">
+                    <div class="text-[#100937] text-center">
+
+                        <h3 class="text-2xl font-bold mb-4">Obiemoney works in <br> three stages</h3>
+
+                        <div class="space-y-4 text-center px-3">
+                            <div class="my-2">
+                                <h4 class="text-xl font-bold mb-1">Stage One: Optimise</h4>
+                                <p class="text-[#100937] text-lg font-normal leading-[22px]">This stage helps you create
+                                    a realistic
+                                    budget,
+                                    buildyour safety net,
+                                    tackle debt strategically and develop smart saving habits.</p>
+                            </div>
+
+                            <div class="my-2">
+                                <h4 class=" text-xl font-bold mb-1">Stage Two: Maximise</h4>
+                                <p class="text-[#100937] text-lg font-normal leading-[22px]">This stage focuses on
+                                    maximising what you have. Start
+                                    or build on
+                                    investments and look at your superannuation.</p>
+                            </div>
+
+                            <div class="my-2">
+                                <h4 class="text-xl font-bold mb-1">Stage Three: Protect</h4>
+                                <p class="text-[#100937] text-lg font-normal leading-[22px]">The protect stage helps you
+                                    identify
+                                    potential risks and put
+                                    appropriate
+                                    safeguards in place.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Button -->
+        <template slot="button">
+            <ButtonNext color="dark-blue" @click="$router.push('/onboarding/page-07')"> Start stage one
+            </ButtonNext>
+        </template>
     </VOnboardingContainer>
-  </form>
+
 </template>
 
 <script>
-import moment from 'moment'
-import { mapState } from 'vuex'
 export default {
-  auth: false,
-  layout: 'onboarding',
-
-  data() {
-    return {
-      frequencyOptions: [
-        {
-          label: 'Weekly',
-          value: 'weekly',
-        },
-        {
-          label: 'Fortnightly',
-          value: 'fortnightly',
-        },
-        {
-          label: 'Monthly',
-          value: 'monthly',
-        },
-        {
-          label: 'Yearly',
-          value: 'yearly',
-        },
-      ],
-    }
-  },
-  computed: {
-    ...mapState(['onboarding']),
-    paydayInPast() {
-      return moment(this.onboarding.next_payday_date).isBefore(
-        moment().subtract(1, 'days')
-      )
-    },
-  },
-  methods: {
-    goNext() {
-      this.$router.push('/onboarding/page-07')
-    },
-  },
+    layout: 'onboarding',
 }
 </script>
 

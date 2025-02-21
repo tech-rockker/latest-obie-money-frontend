@@ -38,12 +38,17 @@
         })
       "
     />
+
     <template slot="button">
+      <ButtonBack
+        color="blue"
+        @click="$router.push('/onboarding/welcome')"
+      ></ButtonBack>
       <ButtonNext
         color="blue"
         @click="$router.push('/onboarding/page-02')"
         :disabled="!onboarding.goal"
-        >GET STARTED</ButtonNext
+        >NEXT</ButtonNext
       >
     </template>
   </VOnboardingContainer>

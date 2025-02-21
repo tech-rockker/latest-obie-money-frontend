@@ -10,6 +10,6 @@ export default function ({ redirect, $auth }) {
       return true
     })
     .catch(() => {
-      return redirect('/login')
+      return redirect('/auth/login')
     })
 }

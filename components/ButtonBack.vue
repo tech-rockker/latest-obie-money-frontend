@@ -1,7 +1,7 @@
 <template>
   <button
     :disabled="disabled"
-    class="button-next relative bg-white border-orange text-orange border hover:bg-gray-100 focus:bg-gray-100"
+    class="button-next relative bg-white border-orange text-orange border hover:bg-gray-100 focus:bg-gray-100 text-lg"
     :type="type"
     @click="$router.go(-1)"
   >

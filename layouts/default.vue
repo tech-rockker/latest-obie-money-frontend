@@ -42,6 +42,7 @@ export default {
   },
   async created() {
     this.loading = true
+    console.log('loading all data');
     await this.$store.dispatch('loadAllData')
     this.loading = false
   },

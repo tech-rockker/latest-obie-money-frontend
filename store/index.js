@@ -89,14 +89,16 @@ const getTransactionsComputedValues = (transactionsTotal, percentageOfIncome) =>
 /* eslint-enable */
 
 const defaultOnboarding = {
-  goal: '',
-  statement: '',
-  dob: '',
+    goal: '',
+    statement: '',
+    household: '',
+    challenges_examples: [],
+    confidence_examples: [],
+
+  income_frequency: '',
+  net_income: '',
   next_payday_date: '',
-  household: '',
-  income_frequency: 'monthly',
-  net_income: 0,
-  cash_savings: 0,
+  cash_savings: '',
 
   income_to_investments_amount: '',
   income_to_investments_frequency: 'monthly',
@@ -105,8 +107,6 @@ const defaultOnboarding = {
   income_to_savings_frequency: 'monthly',
   // income_to_savings_percentage: ''
 
-  challenges_examples: [],
-  confidence_examples: [],
   industry_provider_examples: [],
 
   income_projected_at_retirement: 0
@@ -1044,7 +1044,7 @@ export const actions = {
     commit('setOnboardingValue', { key, value })
     // Only sync if the user is logged in. Once they've completed registration on page 7 it will start syncing
     if (state.auth.loggedIn) {
-      dispatch('syncProfile')
+    //   dispatch('syncProfile')
     }
   },
   setSafetyNetValue({ commit, dispatch }, { category, key, value }) {
@@ -1219,6 +1219,7 @@ export const actions = {
 
   // Gets expenses, and sets up the categories + subcategories from user obj
   getExpenses({ commit, dispatch }) {
+     console.log("running expenses call");
     return this.$axios.get('/api/expenses').then((response) => {
       response.data.data.forEach((expense) => {
         commit('createSubcategory', {

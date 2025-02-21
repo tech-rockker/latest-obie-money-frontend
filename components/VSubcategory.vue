@@ -126,6 +126,7 @@ export default {
     },
     submit() {
       this.loading = true
+      // running /api/expenses
       const name =
         this.form.option === 'Other' ? this.form.label : this.form.option
       this.$axios

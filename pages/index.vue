@@ -9,7 +9,7 @@
 export default {
   name: 'IndexPage',
   middleware({ redirect }) {
-    return redirect('/onboarding/page-01')
+    return redirect('/dashboard')
   },
 }
 </script>

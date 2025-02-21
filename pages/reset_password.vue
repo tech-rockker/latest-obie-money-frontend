@@ -79,7 +79,7 @@ export default {
           token: this.token,
         })
         .then((response) => {
-          this.$router.push('/login')
+          this.$router.push('/auth/login')
           this.isSuccessful = true
           this.$toast.success(response.data.status)
         })

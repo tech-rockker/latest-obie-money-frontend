@@ -2,7 +2,7 @@
   <button
     :disabled="disabled"
     :class="[colorClasses]"
-    class="button-next relative"
+    class="button-next text-lg relative"
     :type="type"
     @click="$emit('click')"
   >

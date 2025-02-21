@@ -64,7 +64,7 @@
       <ButtonNext
         :disabled="!onboarding?.confidence_examples?.length"
         color="blue"
-        @click="$router.push('/onboarding/page-06')"
+        @click="handleSubmit"
         >NEXT</ButtonNext
       >
     </template>
@@ -78,6 +78,30 @@ export default {
   layout: 'onboarding',
   computed: {
     ...mapState(['onboarding']),
+  },
+  methods: {
+    async handleSubmit() {
+            try {
+                this.loading = true
+                await this.$axios.post('/api/profile/onboarding/questions/store', {
+                    goal: this.onboarding.goal,
+                    statement: this.onboarding.statement,
+                    household: this.onboarding.household,
+                    challenges_examples: this.onboarding.challenges_examples,
+                    confidence_examples: this.onboarding.confidence_examples,
+                })
+
+                // Fetch user details again
+                await this.$auth.fetchUser(); // This will refresh the user data
+
+                this.$router.push('/onboarding/page-06')
+            } catch (error) {
+                console.log(error)
+            } finally {
+                this.loading = false
+            }
+        },
+
   },
 }
 </script>

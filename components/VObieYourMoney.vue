@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NuxtLink :to="$auth.loggedIn ? '/dashboard' : '/login'">
+    <NuxtLink :to="$auth.loggedIn ? '/dashboard' : '/auth/login'">
       <img class="w-20" src="/Obie.svg" alt="obie" />
     </NuxtLink>
     <!-- <p class="uppercase text-orange-1 text-xs font-bold">YOUR MONEY</p> -->

@@ -1,7 +1,7 @@
 export default function ({ $axios, redirect, $toast }) {
   $axios.onError((error) => {
     if (error.response.status === 401) {
-      redirect('/onboarding/page-01')
+      redirect('/auth/login')
     }
     console.log(error.response.data)
     if (error?.response?.data?.errors) {

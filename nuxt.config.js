@@ -18,7 +18,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap&family=Playpen+Sans&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;750;800;900;1000;1200&display=swap&family=Playpen+Sans&display=swap',
       },
     ],
   },
@@ -69,13 +69,15 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseURL: 'https://obie-api.waggingtail.dev',
-    baseURL: 'http://127.0.0.1:8000',
+    // baseURL: 'http://127.0.0.1:8000',
+    baseURL: 'https://latest-backend.yourdomain.xyz',
+
   },
   // proxy: {
   // },
   auth: {
     redirect: {
-      login: '/onboarding/page-01',
+      login: '/auth/login',
       logout: '/',
       callback: '/dashboard',
       home: '/dashboard',
