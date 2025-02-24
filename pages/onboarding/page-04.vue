@@ -3,15 +3,19 @@
     image-src="/onboarding/page-04.png"
     character-src="/onboarding/characters/Characters-4.png"
   >
-    <VOnboardingHeading
+    <!-- <VOnboardingHeading
       class="mb-4"
       image-src="/icons/onboarding/house.svg"
       title="What is the biggest challenge you have with your money today?"
       subtitle="SELF-ASSESSMENT"
       content=""
-    ></VOnboardingHeading>
+    ></VOnboardingHeading> -->
+    <div>
+        <p class="font-semibold text-[#EEA15A] text-lg my-3"> 4/5</p>
+        <p class="font-normal text-gray-dark text-2xl my-4 mt-3">What is your biggest financial challenge right now?
+        </p>
+    </div>
     <VOnboardingCheckboxGroup
-      legend="What is the biggest challenge you have with your money today?"
       type="checkbox"
       @input="handleInput($event)"
       :value="onboarding.challenges_examples"
@@ -39,44 +43,44 @@ export default {
   },
   data() {
     return {
-      options: [
-        {
-          label: 'Spending more than you earn',
-          value: 'spending_more_than_you_earn',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Unexpected Costs',
-          value: 'unexpected_costs',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Getting out of debt',
-          value: 'getting_out_of_debt',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Dipping into your savings',
-          value: 'dipping_into_your_savings',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Not Investing',
-          value: 'not_investing',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Other',
-          value: 'other',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-      ],
+        options: [
+            {
+                label: 'Spending more than you earn',
+                value: 'spending_more_than_you_earn',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+            {
+                label: 'Unexpected costs',
+                value: 'unexpected_costs',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+            {
+                label: 'Getting out of debt',
+                value: 'getting_out_of_debt',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+            {
+                label: 'Dipping into your savings',
+                value: 'dipping_into_your_savings',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+            {
+                label: 'Not Investing',
+                value: 'not_investing',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+            {
+                label: 'Something else',
+                value: 'something_else',
+                imageSrc: '/icons/onboarding/pie-chart.svg',
+                imageAlt: 'pie-chart',
+            },
+        ],
     }
   },
   methods: {

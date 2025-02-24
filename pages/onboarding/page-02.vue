@@ -3,28 +3,31 @@
     image-src="/onboarding/page-02.png"
     character-src="/onboarding/characters/Characters-2.png"
   >
-    <VOnboardingHeading
+    <!-- <VOnboardingHeading
       class="mb-4"
       image-src="/icons/onboarding/speech-bubble.svg"
       title="Which Statement describes you best?"
       subtitle="SELF-ASSESSMENT"
-    ></VOnboardingHeading>
+    ></VOnboardingHeading> -->
+    <div>
+        <p class="font-semibold text-[#EEA15A] text-lg my-3"> 2/5</p>
+        <p class="font-normal text-gray-dark text-2xl my-4 mt-3">What statement describes you best?</p>
+    </div>
     <VOnboardingRadioGroup
-      legend="Which Statement describes you best?"
       :options="[
         {
-          label:
-            'I’m already managing my money but I want to optimise what I am doing',
-          value: 1,
+            label:
+                'I’m already on top of my money management but want to start optimising it',
+            value: 1,
         },
         {
-          label:
-            'I’m not doing anything but would if I could set it up once and see a real benefit.',
-          value: 2,
+            label:
+                'I’m just starting out and could use some help in all areas',
+            value: 2,
         },
         {
-          label: 'I’m not doing much and I dont know where to start.',
-          value: 3,
+            label: 'I don’t know where to start!',
+            value: 3,
         },
       ]"
       :value="onboarding.statement"

@@ -12,7 +12,7 @@
                         </svg>
                     </div>
 
-                    <h1 class="mt-4 text-3xl font-extrabold text-gray-900">
+                    <h1 class="mt-4 text-3xl font-bold text-gray-900">
                         Payment Successful! 🎉
                     </h1>
 

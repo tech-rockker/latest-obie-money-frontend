@@ -4,12 +4,15 @@
       image-src="/onboarding/page-05.png"
       character-src="/onboarding/characters/Characters-5.png"
     >
-      <VOnboardingHeading
+      <!-- <VOnboardingHeading
         class="mb-4"
         image-src="/icons/onboarding/growth.svg"
         title="Make the most of your pay!"
         subtitle="STEP ONE"
-      ></VOnboardingHeading>
+      ></VOnboardingHeading> -->
+      <div>
+        <p class="font-normal text-gray-dark text-2xl mb-7 mt-3">Let’s start making the most of your pay!</p>
+      </div>
       <div class="onboarding-input-container">
         <label class="onboarding-label" for="frequency"
           >How often do you get paid?</label

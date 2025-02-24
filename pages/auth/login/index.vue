@@ -42,6 +42,8 @@
   export default {
     layout: 'onboarding',
     auth: false,
+    middleware: ['authenticated'], // Redirect to dashboard if user is already logged in
+
     data() {
       return {
         email: '',

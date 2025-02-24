@@ -3,15 +3,18 @@
     image-src="/onboarding/page-04.png"
     character-src="/onboarding/characters/Characters-4.png"
   >
-    <VOnboardingHeading
+    <!-- <VOnboardingHeading
       class="mb-4"
       image-src="/icons/onboarding/house.svg"
       title="What would you most like to master?"
       subtitle="SELF-ASSESSMENT"
       content=""
-    ></VOnboardingHeading>
+    ></VOnboardingHeading> -->
+    <div>
+        <p class="font-semibold text-[#EEA15A] text-lg my-3"> 5/5</p>
+        <p class="font-normal text-gray-dark text-2xl my-4 mt-3">What do you want to master?</p>
+    </div>
     <VOnboardingCheckboxGroup
-      legend="What would you most like to master?"
       type="checkbox"
       :value="onboarding.confidence_examples"
       @input="
@@ -22,40 +25,34 @@
       "
       :options="[
         {
-          label: 'Managing your pay easily to spend less',
-          value: 'managing_your_pay_easily_to_spend_less',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
+            label: 'Managing your pay easily to spend less',
+            value: 'managing_your_pay_easily_to_spend_less',
+            imageSrc: '/icons/onboarding/pie-chart.svg',
+            imageAlt: 'pie-chart',
         },
         {
-          label: 'Having an emergency fund',
-          value: 'having_an_emergency_fund',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
+            label: 'Having an emergency fund',
+            value: 'having_an_emergency_fund',
+            imageSrc: '/icons/onboarding/pie-chart.svg',
+            imageAlt: 'pie-chart',
         },
         {
-          label: 'Getting out of debt fast',
-          value: 'getting_out_of_debt_fast',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
+            label: 'Getting out of debt fast',
+            value: 'getting_out_of_debt_fast',
+            imageSrc: '/icons/onboarding/pie-chart.svg',
+            imageAlt: 'pie-chart',
         },
         {
-          label: 'Saving more each pay',
-          value: 'saving_more_each_pay',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
+            label: 'Saving more each pay',
+            value: 'saving_more_each_pay',
+            imageSrc: '/icons/onboarding/pie-chart.svg',
+            imageAlt: 'pie-chart',
         },
         {
-          label: 'Start or improve your investing',
-          value: 'start_or_improve_your_investing',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
-        },
-        {
-          label: 'Other',
-          value: 'other',
-          imageSrc: '/icons/onboarding/pie-chart.svg',
-          imageAlt: 'pie-chart',
+            label: 'Start or improve your investing',
+            value: 'start_or_improve_your_investing',
+            imageSrc: '/icons/onboarding/pie-chart.svg',
+            imageAlt: 'pie-chart',
         },
       ]"
     />

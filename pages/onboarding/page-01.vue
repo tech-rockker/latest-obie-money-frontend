@@ -3,28 +3,30 @@
     image-src="/onboarding/page-05.png"
     character-src="/onboarding/characters/Characters-1.png"
   >
-    <VOnboardingHeading
+    <!-- <VOnboardingHeading
       title="A financially fit you"
       content="Your life your way, financially secure independent and free."
-    ></VOnboardingHeading>
-    <p class="font-bold text-gray-dark text-base my-3 mt-6">I want to:</p>
+    ></VOnboardingHeading> -->
+    <div>
+        <p class="font-semibold text-[#EEA15A] text-lg my-3"> 1/5</p>
+        <p class="font-normal text-gray-dark text-2xl my-4 mt-3">What brings you here?</p>
+    </div>
     <VOnboardingRadioGroup
-      legend="Which Statement describes you best?"
       :options="[
         {
-          label: 'Get More from my Money',
+          label: 'I want to get more from my money',
           value: '1',
           imageSrc: '/icons/onboarding/pie-chart.svg',
           imageAlt: 'pie-chart',
         },
         {
-          label: 'Build my Financial Security',
+          label: 'I want to build my financial security',
           value: '2',
           imageSrc: '/icons/onboarding/security.svg',
           imageAlt: 'security',
         },
         {
-          label: 'Improve my financial knowledge and confidence',
+          label: 'I want to improve my financial knowledge and confidence',
           value: '3',
           imageSrc: '/icons/onboarding/speed.svg',
           imageAlt: 'speed',

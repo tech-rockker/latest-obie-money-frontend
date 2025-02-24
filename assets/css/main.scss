@@ -161,12 +161,15 @@ body {
 }
 
 .onboarding-label {
-  @apply text-base mb-2 inline-block text-gray-dark;
+  @apply text-lg mb-2 inline-block text-gray-dark;
 }
 
 .onboarding-input {
-  @apply block w-full appearance-none text-gray-dark font-bold text-base p-3 border-2 bg-[#EBEAFF] border-[#E5E4F5];
-  border-radius: 6px;
+    @apply block w-full text-gray-dark font-bold text-base p-3 border bg-[#FEF6ED] bg-opacity-50 border-[#4B4848] border-opacity-25;  border-radius: 6px;
+}
+
+.radio-label {
+    @apply text-base ;
 }
 
 .onboarding-input-description {

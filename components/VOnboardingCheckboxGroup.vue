@@ -1,7 +1,7 @@
 <template>
   <div>
     <fieldset>
-      <legend class="sr-only">{{ legend }}</legend>
+      <!-- <legend class="sr-only">{{ legend }}</legend> -->
       <div v-for="option in options" :key="option.value">
         <input
           :id="option.value"
@@ -12,19 +12,19 @@
           name="option"
         />
         <label
-          class="radio-label text-gray-dark"
+          class="radio-label text-gray-dark text-base"
           :class="[
             model.includes(option.value) ? 'active' : '',
             option.imageSrc ? 'flex items-center' : 'block text-center',
           ]"
           :for="option.value"
         >
-          <img
+          <!-- <img
             v-if="option.imageSrc"
             class="w-10 mr-4"
             :src="option.imageSrc"
             :alt="option.optioimageAlt"
-          />
+          /> -->
           <span>{{ option.label }}</span>
         </label>
       </div>
@@ -39,10 +39,10 @@ export default {
       type: [Array],
       default: () => [],
     },
-    legend: {
-      type: String,
-      required: true,
-    },
+    // legend: {
+    //   type: String,
+    //   required: true,
+    // },
     options: {
       type: Array,
       default: () => [],

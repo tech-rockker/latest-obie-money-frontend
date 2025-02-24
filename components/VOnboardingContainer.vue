@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col px-3">
     <!-- <div class="w-full top-0 left-0 absolute">
       <img class="w-full" :src="imageSrc" aria-hidden="true" />
     </div> -->

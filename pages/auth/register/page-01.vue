@@ -39,7 +39,7 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
     auth: false,
-    // middleware: ['authenticated'], // Redirect to dashboard if user is already logged in
+    middleware: ['authenticated'], // Redirect to dashboard if user is already logged in
 
     layout: 'onboarding',
     computed: {

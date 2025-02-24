@@ -1,7 +1,7 @@
 <template>
   <div>
     <fieldset>
-      <legend class="sr-only">{{ legend }}</legend>
+      <!-- <legend class="sr-only">{{ legend }}</legend> -->
       <div v-for="(option, index) in options" :key="option.value">
         <input
           :id="index"
@@ -20,12 +20,12 @@
           ]"
           :for="index"
         >
-          <img
+          <!-- <img
             v-if="option.imageSrc"
             class="w-10 mr-4"
             :src="option.imageSrc"
             :alt="option.optioimageAlt"
-          />
+          /> -->
           <span>{{ option.label }}</span>
         </label>
       </div>
@@ -40,10 +40,10 @@ export default {
       type: [Number, String],
       required: true,
     },
-    legend: {
-      type: String,
-      required: true,
-    },
+    // legend: {
+    //   type: String,
+    //   required: true,
+    // },
     options: {
       type: Array,
       default: () => [],
