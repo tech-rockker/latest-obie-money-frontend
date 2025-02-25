@@ -25,10 +25,25 @@
             <label class="onboarding-label" for="dob">What is your date of birth?</label>
             <input id="dob" v-model="dob" class="onboarding-input" type="date" required />
         </div>
+        <div class="mb-3 flex items-center">
+            <input id="acceptedTerms" v-model="acceptedTerms" type="checkbox" class="mr-3" />
+            <span>
+                <label class="modal-label" for="acceptedTerms">I have read, understand and agree to Obie's </label><span
+                    class="text-xs"><button class="inline underline text-xs" @click="$modal.show('disclaimer-modal')"
+                        type="button">
+                        Disclaimer</button>,
+                    <button class="inline underline text-xs" @click="$modal.show('terms-and-conditions-modal')"
+                        type="button">
+                        Terms and Conditions
+                    </button>
+                    and
+                    <button class="inline underline text-xs" @click="$modal.show('privacy-data-modal')" type="button">
+                        Data Privacy Policy</button>.</span>
+            </span>
+        </div>
         <template slot="button">
-            <ButtonNext color="blue" type="submit"
-            :disabled="!isValid || password !== password_confirmation || loading"
-            @click="handleNext">NEXT
+            <ButtonNext color="blue" type="submit" :disabled="!acceptedTerms || !isValid || password !== password_confirmation || loading"
+                @click="handleNext">NEXT
             </ButtonNext>
         </template>
     </VOnboardingContainer>
@@ -42,6 +57,11 @@ export default {
     middleware: ['authenticated'], // Redirect to dashboard if user is already logged in
 
     layout: 'onboarding',
+    data() {
+        return {
+            acceptedTerms: false,
+        }
+    },
     computed: {
         ...mapState('registration', ['registration', 'loading']),
         ...mapGetters('registration', ['isValid']),
