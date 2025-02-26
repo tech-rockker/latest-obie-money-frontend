@@ -37,6 +37,7 @@ module.exports = {
         'gray-dark': '#4B4848',
         'background-top': '#27327d',
         'yellow-1': '#FFD749',
+        'blue-1': '#11064F',
       },
     },
   },

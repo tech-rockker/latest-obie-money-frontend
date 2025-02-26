@@ -77,6 +77,8 @@ export default {
           return 'white'
         case 'red':
           return 'red'
+        case 'blue-one':
+          return 'blue-one'
 
         default:
           return 'blue'

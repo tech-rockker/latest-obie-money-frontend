@@ -8,7 +8,7 @@
                     <h1 class="text-lg font-bold text-orange-4">STAGE ONE</h1>
                 </div>
                 <div>
-                    <h1 class="text-5xl font-extrabold tracking-tight text-[#11064F]">Optimise</h1>
+                    <h1 class="text-5xl font-extrabold tracking-tight text-blue-1">Optimise</h1>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                                     <div class="text-lg text-orange-4 font-bold">STEP {{ step.number }}</div>
                                 </div>
                                 <div class="w-full h-6 mb-1">
-                                    <div class="text-lg text-[#11064F] font-medium">{{ step.text }}</div>
+                                    <div class="text-lg text-blue-1 font-medium">{{ step.text }}</div>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,7 @@
         <!-- Footer Button -->
 
         <template slot="button">
-            <ButtonBack @click="$router.push('/onboarding/page-06')"></ButtonBack>
-            <ButtonNext color="blue" @click="$router.push('/onboarding/page-08')">NEXT
+            <ButtonNext color="blue-one" @click="$router.push('/onboarding/page-08')">Start Stage One
             </ButtonNext>
         </template>
     </VOnboardingContainer>

@@ -127,6 +127,9 @@ body {
     min-height: auto;
     box-shadow: 0px 2px 6px rgba(84, 89, 107, 0.1);
   }
+  &.blue-one {
+    @apply text-white bg-blue-1;
+  }
 }
 
 .vm--container .vm--modal {

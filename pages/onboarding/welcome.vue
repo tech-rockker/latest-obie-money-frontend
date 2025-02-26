@@ -44,7 +44,7 @@
         </div>
         <!-- Footer Button -->
         <template slot="button">
-            <ButtonNext color="dark-blue" @click="$router.push('/onboarding/page-01')"> Start my journey
+            <ButtonNext color="blue-one" @click="$router.push('/onboarding/page-01')"> Start my journey
             </ButtonNext>
         </template>
     </VOnboardingContainer>
