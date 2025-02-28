@@ -12,6 +12,9 @@ export default function ({ route, redirect, $auth, $toast }) {
     return true
   } else {
     if ($auth.user) {
+      if ($auth.user.role === 'admin') {
+        return true
+      }
       // User email is verified, continue
       if ($auth.user.is_email_verified === false) {
         if (route.path === '/email-verification-required') {
@@ -43,9 +46,9 @@ export default function ({ route, redirect, $auth, $toast }) {
         if (
           route.path === '/onboarding/page-06' ||
           route.path === '/onboarding/page-07' ||
-          route.path === '/onboarding/page-08' 
+          route.path === '/onboarding/page-08'
         ) {
-            console.log('redirecting to income questions');
+          console.log('redirecting to income questions')
           return true
         } else {
           return redirect('/onboarding/page-06')
