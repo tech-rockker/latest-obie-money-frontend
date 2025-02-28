@@ -171,6 +171,10 @@ body {
     @apply block w-full text-gray-dark font-bold text-base p-3 border bg-[#FEF6ED] bg-opacity-50 border-[#4B4848] border-opacity-25;  border-radius: 6px;
 }
 
+.profile-input {
+    @apply block w-full text-gray-dark font-bold text-base p-3 border bg-white bg-opacity-50 border-[#4B4848] border-opacity-25;  border-radius: 6px;
+}
+
 .radio-label {
     @apply text-base ;
 }

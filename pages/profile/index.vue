@@ -85,7 +85,7 @@
 
         <!-- delete account button -->
         <div class="p-3 relative flex space-x-3">
-            <ButtonNext color="blue-one" @click="$router.push('/onboarding/page-01')"> Delete Account
+            <ButtonNext color="blue-one" :showIcon="false" @click="$router.push('/profile/delete-account')"> Delete Account
             </ButtonNext>
         </div>
 
