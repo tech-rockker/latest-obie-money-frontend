@@ -115,6 +115,7 @@
           color="blue"
           @click="handleSubmit"
           :disabled="
+            !onboarding.income_frequency ||
             !onboarding.next_payday_date ||
             !onboarding.net_income ||
             paydayInPast

@@ -16,9 +16,11 @@ export default {
   name: 'LayoutDefault',
   computed: {
         bgClass() {
-            if (this.$route.path === '/auth/register/page-02' || this.$route.path === '/onboarding/page-06') {
+            const normalizedPath = this.$route.path.replace(/\/$/, '');
+
+            if (normalizedPath === '/auth/register/page-02' || normalizedPath === '/onboarding/page-06') {
                 return 'bg-fef6ed';
-            } else if (this.$route.path === '/onboarding/welcome') {
+            } else if (normalizedPath === '/onboarding/welcome') {
                 return 'bg-ebeaff';
             }
             return ''; // Default case if none match

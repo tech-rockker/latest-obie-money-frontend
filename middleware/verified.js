@@ -15,9 +15,11 @@ export default function ({ route, redirect, $auth, $toast }) {
       if ($auth.user.role === 'admin') {
         return true
       }
+
+      const normalizedPath = route.path.replace(/\/$/, '');
       // User email is verified, continue
       if ($auth.user.is_email_verified === false) {
-        if (route.path === '/email-verification-required') {
+        if (normalizedPath === '/email-verification-required') {
           return true
         } else {
           return redirect('/email-verification-required')
@@ -27,12 +29,12 @@ export default function ({ route, redirect, $auth, $toast }) {
       // check if user has completed onboarding questions
       if ($auth.user.profile.goal === null) {
         if (
-          route.path === '/onboarding/welcome' ||
-          route.path === '/onboarding/page-01' ||
-          route.path === '/onboarding/page-02' ||
-          route.path === '/onboarding/page-03' ||
-          route.path === '/onboarding/page-04' ||
-          route.path === '/onboarding/page-05'
+          normalizedPath === '/onboarding/welcome' ||
+          normalizedPath === '/onboarding/page-01' ||
+          normalizedPath === '/onboarding/page-02' ||
+          normalizedPath === '/onboarding/page-03' ||
+          normalizedPath === '/onboarding/page-04' ||
+          normalizedPath === '/onboarding/page-05'
         ) {
           console.log('redirecting to onboarding')
           return true
@@ -44,9 +46,9 @@ export default function ({ route, redirect, $auth, $toast }) {
       // check if user has completed income questions
       if ($auth.user.profile.income_frequency === null) {
         if (
-          route.path === '/onboarding/page-06' ||
-          route.path === '/onboarding/page-07' ||
-          route.path === '/onboarding/page-08'
+          normalizedPath === '/onboarding/page-06' ||
+          normalizedPath === '/onboarding/page-07' ||
+          normalizedPath === '/onboarding/page-08'
         ) {
           console.log('redirecting to income questions')
           return true
