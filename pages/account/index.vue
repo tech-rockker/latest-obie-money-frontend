@@ -2,8 +2,8 @@
     <div class="profile-container min-h-screen flex flex-col px-3">
 
         <!-- Back Button -->
-        <div class="p-3 flex items-center space-x-3 my-5">
-            <NuxtLink to="/dashboard" class="flex items-center text-orange-2 text-sm font-medium hover:underline">
+        <div class="p-3 flex items-center space-x-3 mt-5 mb-3">
+            <NuxtLink to="/dashboard" class="flex items-center text-orange-2 text-base font-medium hover:underline">
                 <!-- Back Arrow Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
@@ -30,12 +30,12 @@
                     class="grid grid-cols-10 bg-white p-2 border border-[#4B4848] border-opacity-25 rounded-md w-full box-border">
                     <div class="col-span-9 p-1 text-left">
                         <p class="text-base font-normal text-[#100937] text-opacity-50">
-                            Name
-                            <!-- {{ $auth.user.name }} -->
+                            <!-- Name -->
+                            {{ $auth.user.name }}
                         </p>
                     </div>
                     <div class="col-span-1 bg-gray-200 flex items-center justify-center p-1">
-                        <NuxtLink to="/profile/update-name">✏️</NuxtLink> <!-- Edit icon -->
+                        <NuxtLink to="/account/update-name">✏️</NuxtLink> <!-- Edit icon -->
                     </div>
                 </div>
 
@@ -44,12 +44,12 @@
                     class="grid grid-cols-10 bg-white p-2 border border-[#4B4848] border-opacity-25 rounded-md w-full box-border">
                     <div class="col-span-9 p-1 text-left">
                         <p class="text-base font-normal text-[#100937] text-opacity-50">
-                            Email
-                            <!-- {{ $auth.user.email }} -->
+                            <!-- Email -->
+                            {{ $auth.user.email }}
                         </p>
                     </div>
                     <div class="col-span-1 bg-gray-200 flex items-center justify-center p-1">
-                        <NuxtLink to="/profile/update-email">✏️</NuxtLink> <!-- Edit icon -->
+                        <NuxtLink to="/account/update-email">✏️</NuxtLink> <!-- Edit icon -->
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
                         </p>
                     </div>
                     <div class="col-span-1 bg-gray-200 flex items-center justify-center p-1">
-                        <NuxtLink to="/profile/update-password">✏️</NuxtLink> <!-- Edit icon -->
+                        <NuxtLink to="/account/update-password">✏️</NuxtLink> <!-- Edit icon -->
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 
         <!-- delete account button -->
         <div class="p-3 relative flex space-x-3">
-            <ButtonNext color="blue-one" :showIcon="false" @click="$router.push('/profile/delete-account')"> Delete Account
+            <ButtonNext color="blue-one-small" :showIcon="false" @click="$router.push('/account/delete-account')"> Delete Account
             </ButtonNext>
         </div>
 

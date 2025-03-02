@@ -1,8 +1,7 @@
 <template>
   <button
     :disabled="disabled"
-    :class="[colorClasses]"
-    class="button-next text-lg relative"
+    :class="[baseClass, colorClasses, 'relative text-lg']"
     :type="type"
     @click="$emit('click')"
   >
@@ -67,6 +66,10 @@ export default {
     },
   },
   computed: {
+
+    baseClass() {
+      return this.color === 'blue-one-small' ? 'button-account' : 'button-next';
+    },
     colorClasses() {
       switch (this.color) {
         case 'orange':
@@ -79,6 +82,8 @@ export default {
           return 'red'
         case 'blue-one':
           return 'blue-one'
+        case 'blue-one-small':
+          return 'blue-one-small'
 
         default:
           return 'blue'

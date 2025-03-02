@@ -63,6 +63,16 @@
         </div>
       </NuxtLink>
     </div>
+    <div>
+        <a
+        href="https://kua27hyqf3v.typeform.com/to/XKFg8Cq1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button-next orange relative w-full block text-center"
+        >
+            <p class="text-2xl mb-2">Obie App Feedback Survey</p>
+        </a>
+    </div>
   </VCard>
 </template>
 

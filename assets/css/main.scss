@@ -132,6 +132,17 @@ body {
   }
 }
 
+.button-account {
+    @apply w-full font-bold rounded-md py-2;
+    min-height: 54px;
+    box-shadow: 0px 4px 20px rgba(84, 89, 107, 0.15);
+    &.blue-one-small {
+        @apply text-white bg-blue-1;
+      }
+    &:disabled {
+        @include bg-gray-gradient;
+      }
+    }
 .vm--container .vm--modal {
   @apply rounded-lg overflow-visible;
 }

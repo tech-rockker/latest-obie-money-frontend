@@ -9,22 +9,24 @@
         </div>
 
         <div class="p-3 relative">
+
             <div class="onboarding-input-container">
                 <label class="onboarding-label" for="old-name">Old Name</label>
-                <input id="old-name" readonly class="profile-input cursor-default focus:outline-none" :value="$auth.user.name" />
+                <input id="old-name" readonly class="profile-input cursor-default focus:outline-none"
+                    :value="$auth.user.name" />
             </div>
-        </div>
 
-        <div class="p-3 relative">
             <div class="onboarding-input-container">
                 <label class="onboarding-label" for="name">New Name</label>
-                <input id="name" v-model="name" class="profile-input" type="text" required />
+                <input id="name" v-model="name" class="profile-input" type="text" placeholder="enter new name..."
+                    required />
             </div>
         </div>
 
-        <div class=" mt-3 p-3 relative flex space-x-20">
-            <ButtonNext color="blue-one" :showIcon="false"  @click="$router.push('/profile')">Close</ButtonNext>
-            <ButtonNext color="blue-one" :showIcon="false" @click="handleSubmit" :disabled="false">Update</ButtonNext>
+        <div class=" mt-20 p-3 relative flex space-x-20">
+            <ButtonNext color="blue-one-small" :showIcon="false" @click="$router.push('/account')">Close</ButtonNext>
+            <ButtonNext color="blue-one-small" :showIcon="false" @click="handleSubmit" :disabled="!name">Update
+            </ButtonNext>
         </div>
 
 
@@ -38,25 +40,25 @@ export default {
     data() {
         return {
             name: '',
+            loading: false
         }
     },
     methods: {
         async handleSubmit() {
             try {
                 this.loading = true
-                await this.$axios.post('/api/profile/update/name', {
-                    name: this.name,
-                })
-
-                // Fetch user details again
-                await this.$auth.fetchUser(); // This will refresh the user data
-
+                await this.$axios.$put('/api/account/name', { name: this.name })
+                await this.$auth.fetchUser()
+                this.name = ''  // clear form
+                this.$toast.success('Name updated successfully')
+                // this.$router.push('/account')
             } catch (error) {
-                console.log(error)
+                this.$toast.error(error.response?.data?.message || 'Error updating name')
             } finally {
                 this.loading = false
             }
-        },
+        }
+
     },
 };
 </script>

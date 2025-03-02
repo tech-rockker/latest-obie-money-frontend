@@ -2,7 +2,7 @@
     <div class="p-4 flex items-center justify-between">
         <VObieYourMoney />
         <div class="text-right" v-if="$auth.loggedIn">
-            <NuxtLink to="/profile" class="font-bold">{{ $auth.user.name }}</NuxtLink>
+            <NuxtLink to="/account" class="font-bold">{{ $auth.user.name }}</NuxtLink>
             <div class="flex space-x-2 justify-end">
                 <NuxtLink v-if="$auth.user && $auth.user.role === 'admin'" to="/admin/users" class="text-xs">Admin
                 </NuxtLink>
