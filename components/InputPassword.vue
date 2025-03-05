@@ -4,6 +4,7 @@
       :id="name"
       class="onboarding-input"
       :type="revealPassword ? 'text' : 'password'"
+      :placeholder="name === 'password' ? 'Password' : 'Confirm Password'"
       required
       :value="value"
       @input="$emit('input', $event.target.value)"

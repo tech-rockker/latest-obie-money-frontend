@@ -46,7 +46,7 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
     auth: false,
-    middleware: ['authenticated'], // Redirect to dashboard if user is already logged in
+    middleware: ['authenticated', 'registration-validation'], // Redirect to dashboard if user is already logged in
 
     layout: 'onboarding',
 

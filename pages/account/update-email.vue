@@ -5,8 +5,6 @@
             <div class="mt-3 mb-1">
                 <p class="text-left text-orange-2 text-base font-bold">Update Email</p>
             </div>
-            <div v-if="error" class="text-red-500 p-3">{{ error }}</div>
-
         </div>
 
         <div class="p-3 relative">
@@ -70,7 +68,7 @@ export default {
                     email: this.email
                 })
                 await this.$auth.fetchUser()
-                
+
                 this.email = '' // clear form
                 this.email_confirmation = '' // clear form  
 

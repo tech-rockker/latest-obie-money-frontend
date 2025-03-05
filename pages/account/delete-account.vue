@@ -33,17 +33,13 @@ export default {
     },
     methods: {
         async handleSubmit() {
-            try {
                 this.loading = true
                 await this.$axios.$delete('/api/account')
                 // await this.$auth.logout()
-                this.$router.push('/login')
+                this.$auth.setUser(false);
+                this.$router.push('/auth/login')
                 // this.$toast.success('Account deleted successfully')
-            } catch (error) {
-                this.error = error.response?.data?.error || 'Error deleting account'
-            } finally {
-                this.loading = false
-            }
+            
         }
     },
 };

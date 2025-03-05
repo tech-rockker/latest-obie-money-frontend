@@ -58,7 +58,7 @@
 
         <!-- Footer Button -->
         <template slot="button">
-            <ButtonNext color="dark-blue" @click="$router.push('/onboarding/page-07')"> Start stage one
+            <ButtonNext color="blue-one" @click="$router.push('/onboarding/page-07')"> Start stage one
             </ButtonNext>
         </template>
     </VOnboardingContainer>

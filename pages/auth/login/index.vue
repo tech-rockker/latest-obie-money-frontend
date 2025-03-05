@@ -2,34 +2,36 @@
     <form @submit.prevent="handleSubmit()">
       <VOnboardingContainer
         image-src="/onboarding/page-03.png"
-        character-src="/onboarding/characters/Characters-3.png"
+        character-src="/onboarding/characters/Woman_walking_on_money.png"
       >
-        <VOnboardingHeading class="mb-4" title="Log In"></VOnboardingHeading>
-  
+      <div>
+        <p class="font-normal text-base leading-[19.36px] tracking-normal text-gray-dark  mb-5 mt-5">Please enter your login details</p>
+      </div>
         <div class="onboarding-input-container">
-          <label class="onboarding-label" for="name">Email</label>
           <input
             id="name"
             class="onboarding-input"
             type="email"
             required
             v-model="email"
+            placeholder="Email"
           />
         </div>
         
         <div class="onboarding-input-container">
-          <label class="onboarding-label" for="password">Password</label>
           <InputPassword name="password" v-model="password"></InputPassword>
-          <div class="text-right pt-1">
+          
+        </div>
+
+            <div class="text-left">
             <NuxtLink
-              class="text-orange-4 font-semibold"
+              class="text-[#100937] font-semibold text-sm"
               to="/request-reset-password"
               >Forgot Password?</NuxtLink
             >
           </div>
-        </div>
         <template slot="button">
-          <ButtonNext :disabled="!email || !password" color="blue" type="submit"
+          <ButtonNext :disabled="!email || !password" color="blue-one" type="submit"
             >Log In</ButtonNext
           >
         </template>

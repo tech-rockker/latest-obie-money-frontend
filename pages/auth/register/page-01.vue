@@ -1,30 +1,32 @@
 <template>
     <VOnboardingContainer image-src="/onboarding/page-03.png" character-src="/onboarding/characters/Characters-3.png">
-        <VOnboardingHeading class="mb-4" title="Please fill your account information"></VOnboardingHeading>
-        <div class="onboarding-input-container">
-            <label class="onboarding-label" for="name">Name</label>
-            <input id="name" v-model="name" class="onboarding-input" type="text" required />
+        <div>
+            <p class="font-normal text-base leading-[19.36px] tracking-normal text-gray-dark  mb-5 mt-5">Please enter
+                your login details</p>
         </div>
         <div class="onboarding-input-container">
-            <label class="onboarding-label" for="email">Email</label>
-            <input id="email" v-model="email" class="onboarding-input" type="email" required />
+            <input id="name" v-model="name" class="onboarding-input" placeholder="Name" type="text" required />
         </div>
         <div class="onboarding-input-container">
-            <label class="onboarding-label" for="password">Password</label>
-            <InputPassword v-model="password" name="password"></InputPassword>
-            <p class="onboarding-input-description">
+            <input id="email" v-model="email" class="onboarding-input" placeholder="Email" type="email" required />
+        </div>
+        <div class="onboarding-input-container">
+            <label class="onboarding-label" for="dob">Date of birth</label>
+            <input id="dob" v-model="dob" class="onboarding-input" type="date" required />
+        </div>
+        <div class="onboarding-input-container">
+            <label class="onboarding-label" for="password">Choose a password</label>
+            <p class="text-xs text-[#100937] font mb-3">
                 Your password must contain at least 6 characters, a capital letter, a
                 special character and a number.
             </p>
+            <InputPassword v-model="password" name="password"></InputPassword>
+
         </div>
         <div class="onboarding-input-container">
-            <label class="onboarding-label" for="name">Confirm Password</label>
             <InputPassword v-model="password_confirmation" name="password_confirmation"></InputPassword>
         </div>
-        <div class="onboarding-input-container">
-            <label class="onboarding-label" for="dob">What is your date of birth?</label>
-            <input id="dob" v-model="dob" class="onboarding-input" type="date" required />
-        </div>
+
         <div class="mb-3 flex items-center">
             <input id="acceptedTerms" v-model="acceptedTerms" type="checkbox" class="mr-3" />
             <span>
@@ -42,7 +44,8 @@
             </span>
         </div>
         <template slot="button">
-            <ButtonNext color="blue" type="submit" :disabled="!acceptedTerms || !isValid || password !== password_confirmation || loading"
+            <ButtonNext color="blue" type="submit"
+                :disabled="!acceptedTerms || !name || !email || !password || password !== password_confirmation || loading"
                 @click="handleNext">NEXT
             </ButtonNext>
         </template>
@@ -99,14 +102,18 @@ export default {
                 this.setRegistrationValue({ key: 'dob', value })
             }
         },
+
+
     },
 
     methods: {
         ...mapActions('registration', ['checkEmail', 'setRegistrationValue']),
 
         async handleNext() {
-            if (!this.isValid) return
-
+            if (!this.isValid) {
+                this.$toast.error('Please complete all required fields correctly')
+                return
+            }
             try {
                 await this.checkEmail()
                 this.$router.push('/auth/register/page-02')

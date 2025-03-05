@@ -13,15 +13,29 @@ const defaultRegistration = {
   })
   
   export const getters = {
-    isValid(state) {
-      return (
-        state.registration.password ===
-          state.registration.password_confirmation &&
-        !!state.registration.name &&
-        !!state.registration.email &&
-        !!state.registration.dob
-      )
+    isPasswordValid(state) {
+      const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/
+      return regex.test(state.registration.password)
     },
+    isAgeValid(state) {
+      if (!state.registration.dob) return false
+      const birthDate = new Date(state.registration.dob)
+      const today = new Date()
+      let age = today.getFullYear() - birthDate.getFullYear()
+      const monthDiff = today.getMonth() - birthDate.getMonth()
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--
+      return age >= 18
+    },
+    isValid(state, getters) {
+      return (
+        state.registration.password === state.registration.password_confirmation &&
+        !!state.registration.name.trim() &&
+        !!state.registration.email.trim() &&
+        !!state.registration.dob &&
+        getters.isPasswordValid &&
+        getters.isAgeValid
+      )
+    }
   }
   
   export const mutations = {
