@@ -1,8 +1,11 @@
 <template>
     <VOnboardingContainer image-src="/onboarding/page-03.png" character-src="/onboarding/characters/Characters-3.png">
+
+        <h1 class="text-[#100937] text-base font-bold mb-2">Create Your Obiemoney Account</h1>
+
         <div>
             <p class="font-normal text-base leading-[19.36px] tracking-normal text-gray-dark  mb-5 mt-5">Please enter
-                your login details</p>
+                your details</p>
         </div>
         <div class="onboarding-input-container">
             <input id="name" v-model="name" class="onboarding-input" placeholder="Name" type="text" required />
@@ -12,7 +15,11 @@
         </div>
         <div class="onboarding-input-container">
             <label class="onboarding-label" for="dob">Date of birth</label>
-            <input id="dob" v-model="dob" class="onboarding-input" type="date" required />
+            <input id="dob" v-model="dob" class="onboarding-input" type="date" required
+                :max="new Date().toISOString().split('T')[0]" />
+            <p v-if="dobInFuture" class="red onboarding-input-description">
+                Date must be in the past
+            </p>
         </div>
         <div class="onboarding-input-container">
             <label class="onboarding-label" for="password">Choose a password</label>
@@ -21,10 +28,19 @@
                 special character and a number.
             </p>
             <InputPassword v-model="password" name="password"></InputPassword>
+            <p class="onboarding-input-description" :class="[password && !isPasswordValid ? 'red' : '']">
+                Your password must contain at least 6 characters, a capital letter, a
+                special character and a number.
+            </p>
 
         </div>
         <div class="onboarding-input-container">
             <InputPassword v-model="password_confirmation" name="password_confirmation"></InputPassword>
+            <!-- Show warning if passwords dont match -->
+            <p v-if="password_confirmation && password_confirmation !== password"
+                class="red onboarding-input-description">
+                Passwords do not match
+            </p>
         </div>
 
         <div class="mb-3 flex items-center">
@@ -44,8 +60,7 @@
             </span>
         </div>
         <template slot="button">
-            <ButtonNext color="blue" type="submit"
-                :disabled="!acceptedTerms || !name || !email || !password || password !== password_confirmation || loading"
+            <ButtonNext color="blue" type="submit" :disabled="!acceptedTerms || !name || !email || !password || !isValid || loading"
                 @click="handleNext">NEXT
             </ButtonNext>
         </template>
@@ -67,7 +82,7 @@ export default {
     },
     computed: {
         ...mapState('registration', ['registration', 'loading']),
-        ...mapGetters('registration', ['isValid']),
+        ...mapGetters('registration', ['isValid', 'dobInFuture', 'isPasswordValid']),
 
         name: {
             get() { return this.registration.name },
@@ -88,6 +103,9 @@ export default {
                 this.setRegistrationValue({ key: 'password', value })
             },
         },
+
+
+
 
         password_confirmation: {
             get() { return this.registration.password_confirmation },

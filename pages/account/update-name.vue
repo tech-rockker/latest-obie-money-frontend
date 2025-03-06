@@ -11,7 +11,7 @@
         <div class="p-3 relative">
 
             <div class="onboarding-input-container">
-                <label class="onboarding-label" for="old-name">Old Name</label>
+                <label class="onboarding-label" for="old-name">Current Name</label>
                 <input id="old-name" readonly class="profile-input cursor-default focus:outline-none"
                     :value="$auth.user.name" />
             </div>

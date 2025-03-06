@@ -9,7 +9,7 @@
 
         <div class="p-3 relative">
             <div class="onboarding-input-container">
-                <label class="onboarding-label" for="name">Old Email</label>
+                <label class="onboarding-label" for="name">Current Email</label>
                 <input id="name" readonly class="profile-input cursor-default focus:outline-none"
                     :value="$auth.user.email" />
             </div>

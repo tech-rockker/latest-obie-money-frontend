@@ -10,7 +10,7 @@
         <div class="p-3 relative">
 
             <div class="onboarding-input-container">
-                <label class="onboarding-label" for="old-password">Old Password</label>
+                <label class="onboarding-label" for="old-password">Current Password</label>
                 <input id="old-password" v-model="old_password" class="profile-input" type="password" required />
             </div>
 

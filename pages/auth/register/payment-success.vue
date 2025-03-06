@@ -1,6 +1,5 @@
 <template>
     <VOnboardingContainer>
-        <!-- <VOnboardingHeading></VOnboardingHeading> -->
         <div class=" bg-gray-50 flex items-center justify-center px-4">
             <div class="max-w-md w-full bg-white rounded-lg shadow-xl p-8">
                 <div class="text-center">

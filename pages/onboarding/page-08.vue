@@ -178,7 +178,7 @@ export default {
                 // Fetch user details again
                 await this.$auth.fetchUser(); // This will refresh the user data
 
-                this.$router.push('/dashboard')
+                this.$router.push('/expenses/page-01')
             } catch (error) {
                 console.log(error)
             } finally {
