@@ -84,6 +84,8 @@ export default {
           return 'blue-one'
         case 'blue-one-small':
           return 'blue-one-small'
+        case 'white-orange':
+          return 'white-orange'
 
         default:
           return 'blue'

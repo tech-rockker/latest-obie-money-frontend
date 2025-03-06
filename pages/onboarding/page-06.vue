@@ -29,7 +29,7 @@
                                 <p class="text-[#100937] text-lg font-normal leading-[22px]">This stage helps you create
                                     a realistic
                                     budget,
-                                    buildyour safety net,
+                                    build your safety net,
                                     tackle debt strategically and develop smart saving habits.</p>
                             </div>
 

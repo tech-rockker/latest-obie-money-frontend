@@ -111,6 +111,15 @@ textarea::placeholder {
     // background: rgba(35, 46, 116, 0.6);
   }
 
+  &.white-orange {
+    @apply text-orange-4 bg-white border border-orange-4;
+
+    &:hover,
+    &:focus {
+      @apply text-white bg-orange-4;
+    }
+  }
+
   &.blue-dark {
     @apply text-white bg-orange-4;
     // background: linear-gradient(154.12deg, #3a48a3 16.34%, #1f2a76 78.65%),
