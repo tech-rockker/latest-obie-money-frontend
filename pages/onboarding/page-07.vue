@@ -19,16 +19,21 @@
             </div>
 
             <!-- Steps List -->
-            <div class="bg-white rounded-xl shadow-lg w-full px-10 py-7 my-3">
-                <div class="grid grid-rows-4 gap-4 ">
+            <div class="bg-white rounded-xl shadow-lg w-full pl-10 pr-8 py-7 my-3">
+                <div class="grid grid-rows-4 gap-4">
                     <!-- Dynamic rows using v-for -->
                     <div v-for="(step, index) in steps" :key="index" class="grid grid-cols-10 gap-4">
                         <!-- Column 1 (Span 1/10) -->
-                        <div class="col-span-1">
+                        <div class="col-span-1 relative">
                             <div class="grid grid-rows-2">
-                                <div class="w-full h-6 content-center">
-                                    <div class="w-5 h-5 rounded-full border-4 border-orange-4">
-                                    </div>
+                                <div class="w-full h-6 content-center relative">
+                                    <!-- Vertical line -->
+                                    <div 
+                                        v-if="index < steps.length - 1"
+                                        class="absolute left-1/2 top-5 -translate-x-1/2 w-px h-[calc(100%+2rem)] bg-orange-4 border-[1.8px] border-orange-4"
+                                    ></div>
+                                    <!-- Circle -->
+                                    <div class="w-6 h-6 rounded-full border-[6px] border-orange-4 relative z-10 bg-white"></div>
                                 </div>
                                 <div class="w-full h-6"></div>
                             </div>
@@ -37,10 +42,10 @@
                         <div class="col-span-9">
                             <div class="grid grid-rows-2">
                                 <div class="w-full h-6">
-                                    <div class="text-lg text-orange-4 font-bold">STEP {{ step.number }}</div>
+                                    <p class="text-lg text-orange-4 font-bold">STEP {{ step.number }}</p>
                                 </div>
                                 <div class="w-full h-6 mb-1">
-                                    <div class="text-lg text-blue-1 font-medium">{{ step.text }}</div>
+                                    <p class="text-lg text-blue-1 text-wrap font-medium">{{ step.text }}</p>
                                 </div>
                             </div>
                         </div>

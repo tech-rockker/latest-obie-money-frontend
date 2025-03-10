@@ -26,7 +26,7 @@
           </ButtonNext>
   
           <!-- Proceed Instruction -->
-          <p class="text-gray-700 text-base leading-relaxed">
+          <p class="pt-5 text-gray-700 text-base leading-relaxed">
             Already verified? Click the button below to proceed further.
           </p>
   
