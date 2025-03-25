@@ -25,7 +25,7 @@
 
             <div class="text-left">
             <NuxtLink
-              class="text-[#100937] font-semibold text-sm"
+              class="text-blue-2 font-semibold text-sm"
               to="/request-reset-password"
               >Forgot Password?</NuxtLink
             >

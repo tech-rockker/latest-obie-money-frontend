@@ -17,8 +17,8 @@
   
   <style scoped>
   .bg-fef6ed {
-      background-color: #FEF6ED;
-      min-height: 100vh;
+      /* background-color: #FEF6ED;*/
+      min-height: 100vh; 
       /* Ensure it covers the full viewport height */
   }
   </style>

@@ -3,19 +3,19 @@
 
         <div class="p-3 relative">
             <div class="mt-3 mb-2">
-                <p class="text-left text-orange-2 text-base font-bold">Delete Account</p>
+                <p class="text-center text-blue-2 text-lg font-bold">Are you Sure?</p>
             </div>
         </div>
 
         <div class="p-3 relative">
-            <p class="font-normal text-base text-[#100937]">Please confirm that you’d like to delete your account and data. Deleting your account
-                will also cancel
-                any subscriptions.</p>
+            <p class="text-center font-normal text-base text-blue-2">If you delete your account you’ll lose access to Obiemoney as well as your Lifetime Access benefits.</p>
         </div>
 
-        <div class=" mt-40 p-3 relative flex space-x-20">
-            <ButtonNext color="blue-one-small" :showIcon="false" @click="$router.push('/account')">Close</ButtonNext>
-            <ButtonNext color="blue-one-small" :showIcon="false" @click="handleSubmit" :disabled="false">Delete</ButtonNext>
+        <div class=" p-3 relative flex">
+            <ButtonNext color="blue-one-small" :showIcon="false" @click="$router.push('/account/subscription-and-billing')">Keep My Account</ButtonNext>
+        </div>
+        <div class="p-3 relative flex">
+            <ButtonNext color="blue" :showIcon="false" @click="handleSubmit" :disabled="false">Yes, Delete</ButtonNext>
         </div>
 
 

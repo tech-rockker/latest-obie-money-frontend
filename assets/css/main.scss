@@ -127,7 +127,7 @@ textarea::placeholder {
   }
 
   &.red {
-    @apply text-white bg-red-600;
+    @apply text-white bg-red-3;
   }
 
   &:disabled {
@@ -212,7 +212,7 @@ textarea::placeholder {
   @apply text-xs text-gray-600 mt-1;
 
   &.red {
-    @apply text-red-600;
+    @apply text-red-3;
   }
 }
 

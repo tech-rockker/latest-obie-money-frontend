@@ -4,10 +4,12 @@
       :id="name"
       class="onboarding-input"
       :type="revealPassword ? 'text' : 'password'"
-      :placeholder="name === 'password' ? 'Password' : 'Confirm Password'"
+      :placeholder="placeholder"
       required
       :value="value"
       @input="$emit('input', $event.target.value)"
+      readonly
+      onfocus="this.removeAttribute('readonly');"
     />
     <button
       @click="revealPassword = !revealPassword"
@@ -66,6 +68,15 @@ export default {
     return {
       revealPassword: false,
     }
+  },
+  computed: {
+    placeholder() {
+      if (!this.name) return '';
+      return this.name
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    },
   },
   props: {
     value: {

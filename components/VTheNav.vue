@@ -2,13 +2,17 @@
     <div class="p-4 flex items-center justify-between">
         <VObieYourMoney />
         <div class="text-right" v-if="$auth.loggedIn">
-            <NuxtLink to="/account" class="font-bold">{{ $auth.user.name }}</NuxtLink>
+            <!-- <NuxtLink to="/account" class="font-bold">{{ $auth.user.name }}</NuxtLink>
             <div class="flex space-x-2 justify-end">
                 <NuxtLink v-if="$auth.user && $auth.user.role === 'admin'" to="/admin/users" class="text-xs">Admin
                 </NuxtLink>
                 <button @click="logOut()" class="text-xs text-red-500" type="button">
                     Log Out
                 </button>
+            </div> -->
+            <div
+                class="w-8 h-8 flex items-center text-center justify-center rounded-full bg-outline text-white text-xl font-normal p-2">
+                <NuxtLink to="/account">{{ $auth.user.name.charAt(0) }}</NuxtLink>
             </div>
         </div>
         <div v-else class="flex space-x-3">
