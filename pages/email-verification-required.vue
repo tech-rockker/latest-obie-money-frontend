@@ -24,20 +24,6 @@
             </template>
             <span v-else>Sending...</span>
           </ButtonNext>
-  
-          <!-- Proceed Instruction -->
-          <p class="pt-5 text-gray-700 text-base leading-relaxed">
-            Already verified? Click the button below to proceed further.
-          </p>
-  
-          <!-- Proceed Button -->
-          <ButtonNext
-            @click="retryVerification" 
-            :disabled="checking"
-            color="blue"
-          >
-            Proceed
-          </buttonNext>
         </div>
       </div>
     </VOnboardingContainer>

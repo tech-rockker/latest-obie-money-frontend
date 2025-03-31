@@ -2,7 +2,7 @@
   <DashboardContainer
     id="insurances"
     :step="7"
-    title="My Insurance"
+    title="Insurance"
     to="/insurance/page-01"
   >
     <div>

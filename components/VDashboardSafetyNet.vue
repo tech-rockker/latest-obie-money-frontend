@@ -2,7 +2,7 @@
   <div>
     <DashboardContainer
       :step="2"
-      title="My Safety Net Goals"
+      title="Safety Net"
       to="/safety-net/page-01"
     >
       <div class="orange-currency-table">

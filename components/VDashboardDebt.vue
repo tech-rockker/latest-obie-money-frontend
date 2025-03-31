@@ -1,5 +1,5 @@
 <template>
-  <DashboardContainer :step="3" title="My Debt Free Plan" to="/debt/page-01">
+  <DashboardContainer :step="3" title="Debt Free Plan" to="/debt/page-01">
     <div>
       <div>
         <div v-if="debts.length" class="mb-4">

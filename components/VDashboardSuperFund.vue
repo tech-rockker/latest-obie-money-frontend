@@ -1,5 +1,5 @@
 <template>
-  <DashboardContainer :step="6" title="My Super Investment" to="/super/page-02">
+  <DashboardContainer :step="6" title="Super Investment" to="/super/page-02">
     <div>
       <div>
         <div class="orange-currency-table">

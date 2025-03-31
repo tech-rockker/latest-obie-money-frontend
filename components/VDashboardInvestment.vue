@@ -1,7 +1,7 @@
 <template>
   <DashboardContainer
     :step="5"
-    title="My Investment Goals"
+    title="Investment Goals"
     to="/invest/page-01"
   >
     <div>

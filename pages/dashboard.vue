@@ -9,7 +9,7 @@
     <VDashboardInsurances />
     <DashboardContainer
       :step="8"
-      title="My Asset Protection"
+      title="Asset Protection"
       to="/learn/asset-protection"
     >
       <p class="text-gray-dark italic">
@@ -20,7 +20,7 @@
     </DashboardContainer>
     <DashboardContainer
       :step="9"
-      title="My Final To Do List"
+      title="Estate Planning"
       to="/to-dos/estate-planning"
     >
       <p class="text-gray-dark italic">

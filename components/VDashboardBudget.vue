@@ -72,7 +72,7 @@
     </ButtonNext>
     <DashboardContainer
       :step="1"
-      title="My New Spending Plan"
+      title="Spending Plan"
       to="/expenses/page-01"
     >
       <div>

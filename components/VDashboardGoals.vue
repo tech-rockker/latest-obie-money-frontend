@@ -1,5 +1,5 @@
 <template>
-  <DashboardContainer :step="4" title="My Savings Goals" to="/goals/page-01">
+  <DashboardContainer :step="4" title="Savings Goals" to="/goals/page-01">
     <div>
       <div>
         <div v-if="goals.length">
