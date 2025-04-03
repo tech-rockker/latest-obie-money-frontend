@@ -1,7 +1,7 @@
 <template>
   <div class="sticky bottom-0 left-0 w-full z-10 mt-auto relative">
     <OneTimeExpenseButton></OneTimeExpenseButton>
-    <div class="grid grid-cols-5 bg-[#EEA15A]">
+    <div class="grid grid-cols-5 bg-blue-1">
       <component
         :is="item.to ? 'nuxt-link' : 'a'"
         v-for="item in nav"

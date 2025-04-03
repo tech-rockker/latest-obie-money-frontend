@@ -17,12 +17,12 @@
         <div class="px-3 relative">
 
             <div class="onboarding-input-container">
-                <input id="email" v-model="email" class="onboarding-input" type="email" placeholder="new email"
+                <input id="email" v-model="email" class="onboarding-input" type="email" placeholder="New Email"
                     required />
             </div>
             <div class="onboarding-input-container">
                 <input id="email_confirmation" v-model="email_confirmation" class="onboarding-input"
-                    placeholder="confirm new email" type="email" required />
+                    placeholder="Confirm New Email" type="email" required />
 
                 <div v-if="email && email_confirmation != '' && email !== email_confirmation" class="text-red-500 px-3">
                     Emails do not match</div>
@@ -82,7 +82,7 @@
         <div class="px-3 relative">
 
             <div class="onboarding-input-container">
-                <input id="name" v-model="name" class="profile-input" type="text" placeholder="enter new name..."
+                <input id="name" v-model="name" class="profile-input" type="text" placeholder="Enter New Name..."
                     required />
             </div>
         </div>

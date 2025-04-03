@@ -99,6 +99,9 @@ textarea::placeholder {
     @apply text-white bg-orange-4;
     // background: rgba(35, 46, 116, 0.6);
   }
+  &.blue-three {
+    @apply text-white bg-blue-3;
+  }
 
   &.white {
     @apply text-gray-700 bg-white;
@@ -107,6 +110,8 @@ textarea::placeholder {
     &:focus {
       @apply bg-gray-50;
     }
+
+   
 
     // background: rgba(35, 46, 116, 0.6);
   }
