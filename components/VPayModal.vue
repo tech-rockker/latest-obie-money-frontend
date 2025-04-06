@@ -93,6 +93,7 @@ export default {
           value: 'yearly',
         },
       ],
+        loading: false,
     }
   },
   methods: {
@@ -102,7 +103,7 @@ export default {
       this.form.next_payday_date = this.onboarding.next_payday_date
       this.form.cash_savings = this.onboarding.cash_savings
     },
-    submit() {
+    async submit() {
       this.$store.dispatch('setOnboardingValue', {
         key: 'income_frequency',
         value: this.form.income_frequency,
@@ -119,7 +120,25 @@ export default {
         key: 'cash_savings',
         value: this.form.cash_savings,
       })
-      this.$modal.hide('manage-pay')
+
+      try {
+            this.loading = true
+            await this.$axios.post('/api/profile/onboarding/saving-stats/store', {
+                income_frequency: this.onboarding.income_frequency,
+                net_income: this.onboarding.net_income,
+                next_payday_date: this.onboarding.next_payday_date,
+                cash_savings: this.onboarding.cash_savings,
+            })
+
+            // Fetch user details again
+            await this.$auth.fetchUser(); // This will refresh the user data
+
+            this.$modal.hide('manage-pay')
+        } catch (error) {
+            console.log(error)
+        } finally {
+            this.loading = false
+        }
     },
   },
   computed: {

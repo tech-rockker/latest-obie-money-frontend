@@ -93,12 +93,27 @@ export default {
       this.form.income_projected_at_retirement =
         this.incomeProjectedAtRetirement
     },
-    submit() {
+    async submit() {
       this.$store.dispatch('setOnboardingValue', {
         key: 'income_projected_at_retirement',
         value: this.form.income_projected_at_retirement,
       })
-      this.$modal.hide('manage-projected-income')
+
+      try {
+            this.loading = true
+            await this.$axios.post('/api/profile/onboarding/saving-stats/store', {
+                income_projected_at_retirement: this.form.income_projected_at_retirement,
+            })
+
+            // Fetch user details again
+            await this.$auth.fetchUser();
+
+            this.$modal.hide('manage-projected-income')
+        } catch (error) {
+            console.log(error)
+        } finally {
+            this.loading = false
+        }
     },
   },
   computed: {

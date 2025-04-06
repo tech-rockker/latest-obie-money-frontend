@@ -86,6 +86,7 @@ export default {
         amount: 0,
         frequency: '',
       },
+      loading: false,
     }
   },
   computed: {
@@ -98,7 +99,7 @@ export default {
       this.form.frequency = this.onboarding.income_to_savings_frequency
       this.$modal.show(`update-savings`)
     },
-    submit() {
+    async submit() {
       this.$store.dispatch('setOnboardingValue', {
         key: 'income_to_savings_amount',
         value: this.form.amount,
@@ -108,7 +109,23 @@ export default {
         value: this.form.frequency,
       })
 
-      this.$modal.hide(`update-savings`)
+      try {
+            this.loading = true
+            await this.$axios.post('/api/profile/onboarding/saving-stats/store', {
+                income_to_savings_amount: this.form.amount,
+                income_to_savings_frequency: this.form.frequency,
+            })
+
+            // Fetch user details again
+            await this.$auth.fetchUser();
+
+            this.$modal.hide(`update-savings`)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            this.loading = false
+        }
+
     },
   },
 }

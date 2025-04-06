@@ -88,6 +88,7 @@ export default {
         amount: 0,
         frequency: '',
       },
+      loading: false,
     }
   },
   computed: {
@@ -100,15 +101,7 @@ export default {
       this.form.frequency = this.onboarding.income_to_investments_frequency
       this.$modal.show(`update-investment`)
     },
-    submit() {
-      // this.$store.commit('updateInvestment', {
-      //   key: 'amount',
-      //   value: this.form.amount,
-      // })
-      // this.$store.commit('updateInvestment', {
-      //   key: 'frequency',
-      //   value: this.form.frequency,
-      // })
+    async submit() {
       this.$store.dispatch('setOnboardingValue', {
         key: 'income_to_investments_amount',
         value: this.form.amount,
@@ -117,7 +110,23 @@ export default {
         key: 'income_to_investments_frequency',
         value: this.form.frequency,
       })
-      this.$modal.hide(`update-investment`)
+
+      try {
+            this.loading = true
+            await this.$axios.post('/api/profile/onboarding/saving-stats/store', {
+                income_to_investments_frequency: this.form.frequency,
+                income_to_investments_amount: this.form.amount,
+            })
+
+            // Fetch user details again
+            await this.$auth.fetchUser(); // This will refresh the user data
+
+            this.$modal.hide(`update-investment`)
+        } catch (error) {
+            console.log(error)
+        } finally {
+            this.loading = false
+        }
     },
   },
 }
