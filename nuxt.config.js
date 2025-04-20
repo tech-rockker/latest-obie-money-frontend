@@ -70,8 +70,9 @@ export default {
   axios: {
     // baseURL: 'https://obie-api.waggingtail.dev',
     // baseURL: 'http://127.0.0.1:8000',
-    baseURL: 'https://latest-backend.yourdomain.xyz',
-    // baseURL: 'https://obie-backend.azurewebsites.net',
+    // baseURL: 'https://latest-backend.yourdomain.xyz',
+    baseURL: 'https://obie-api-production.up.railway.app',
+
 
 
   },
